@@ -1,0 +1,139 @@
+{
+    "env": {
+        "es2021": true,
+        "jest/globals": true
+      },
+    "extends": [
+        "airbnb-base",
+        "prettier",
+
+        "plugin:react/recommended",
+        "prettier/react",
+        "airbnb"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module",
+        "ecmaFeatures": {
+          "jsx": true
+      }
+    },
+    "globals": {
+      "Atomics": "readonly",
+      "__DEV__":"readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "plugins": [
+        "prettier",
+        "import-helpers",
+
+        "plugin:jest/recommended",
+        "plugin:jest/style",
+        "jest",
+
+        "react"
+    ],
+    "rules": {
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
+        ],
+        "class-methods-use-this": "off",
+        "no-param-reassign": "off",
+        "camelcase": "off",
+        "no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "next"
+            }
+        ],
+        "import-helpers/order-imports": [
+            "warn",
+            {
+                "newlinesBetween": "always",
+                "groups": [
+                    "module",
+                    "/^@shared/",
+                    "/^~/",
+                    "/^#lib/",
+                    "/^#services/",
+                    "/^#utils/",
+                    "/^#config/",
+                    "/^#middlewares/",
+                    "/^#controllers/",
+                    "/^#views/",
+                    "/^#config/",
+                    "/^#models/",
+                    [
+                        "parent",
+                        "sibling",
+                        "index"
+                    ]
+                ],
+                "alphabetize": {
+                    "order": "asc",
+                    "ignoreCase": true
+                }
+            }
+        ],
+
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-have-length": "warn",
+        "jest/valid-expect": "error",
+
+        "react/static-property-placement":"off",
+        "react/jsx-filename-extension": ["warn", {"extensions": [".jsx", ".js"] } ],
+        "react/state-in-constructor":"off",
+        "no-console": ["error",{"allow": ["tron"]}]
+    },
+    "settings": {
+        "import/resolver": {
+            "babel-plugin-root-import": [
+                {
+                    "rootPathSuffix": "./src",
+                    "rootPathPrefix": "~/"
+                },
+                {
+                    "rootPathSuffix": "./src/controllers",
+                    "rootPathPrefix": "#controllers/"
+                },
+                {
+                    "rootPathSuffix": "./src/views",
+                    "rootPathPrefix": "#views/"
+                },
+                {
+                    "rootPathSuffix": "./lib",
+                    "rootPathPrefix": "#lib/"
+                },
+                {
+                    "rootPathSuffix": "./src/middlewares",
+                    "rootPathPrefix": "#middlewares/"
+                },
+                {
+                    "rootPathSuffix": "./config",
+                    "rootPathPrefix": "#config/"
+                },
+                {
+                    "rootPathSuffix": "./src/lib",
+                    "rootPathPrefix": "#lib/"
+                },
+                {
+                    "rootPathSuffix": "./src/services",
+                    "rootPathPrefix": "#services/"
+                },
+                {
+                  "rootPathSuffix": "./src/utils",
+                  "rootPathPrefix": "#utils/"
+                }
+            ]
+        },
+        "jest": {
+          "version": 26
+        }
+    }
+}
